@@ -1,0 +1,2 @@
+# RuneImporterForUnity
+XlsToRuneで出力したrune(json)ファイルをUnity上でパラメータとして扱えるようにするインポータを作成するリポジトリです
