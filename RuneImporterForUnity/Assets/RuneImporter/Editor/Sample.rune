@@ -1,0 +1,177 @@
+{
+  "Name": "Sample",
+  "Sheets": [
+    {
+      "Name": "Sample",
+      "Tables": [
+        {
+          "Name": "SampleType",
+          "Types": [
+            {
+              "TypeName": {
+                "Kind": "enum",
+                "Value": ""
+              }
+            },
+            {
+              "TypeName": {
+                "Kind": "string",
+                "Value": "name"
+              }
+            },
+            {
+              "TypeName": {
+                "Kind": "int",
+                "Value": "number"
+              }
+            },
+            {
+              "TypeName": {
+                "Kind": "float",
+                "Value": "position"
+              }
+            }
+          ],
+          "Values": [
+            {
+              "Values": [
+                "Foo",
+                "Foo",
+                "0",
+                "0.5"
+              ]
+            },
+            {
+              "Values": [
+                "Bar",
+                "Bar",
+                "1",
+                "1.1"
+              ]
+            },
+            {
+              "Values": [
+                "e",
+                "e",
+                "22",
+                "2.2"
+              ]
+            },
+            {
+              "Values": [
+                "n",
+                "",
+                "a",
+                " "
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "SampleType2",
+          "Types": [
+            {
+              "TypeName": {
+                "Kind": "enum",
+                "Value": ""
+              }
+            },
+            {
+              "TypeName": {
+                "Kind": "string",
+                "Value": "name"
+              }
+            }
+          ],
+          "Values": [
+            {
+              "Values": [
+                "Enum0",
+                "Name0"
+              ]
+            },
+            {
+              "Values": [
+                "Enum1",
+                "Name1"
+              ]
+            },
+            {
+              "Values": [
+                "Enum3",
+                "Name3"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Sample2",
+      "Tables": [
+        {
+          "Name": "SampleType3",
+          "Types": [
+            {
+              "TypeName": {
+                "Kind": "enum",
+                "Value": ""
+              }
+            },
+            {
+              "TypeName": {
+                "Kind": "string",
+                "Value": "name"
+              }
+            }
+          ],
+          "Values": [
+            {
+              "Values": [
+                "Table0",
+                "Foo"
+              ]
+            },
+            {
+              "Values": [
+                "Table1",
+                "Bar"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "SampleType4",
+          "Types": [
+            {
+              "TypeName": {
+                "Kind": "enum",
+                "Value": ""
+              }
+            },
+            {
+              "TypeName": {
+                "Kind": "string",
+                "Value": "name"
+              }
+            }
+          ],
+          "Values": [
+            {
+              "Values": [
+                "Table2_0",
+                "FooT"
+              ]
+            },
+            {
+              "Values": [
+                "Table2_1",
+                "BarT"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
