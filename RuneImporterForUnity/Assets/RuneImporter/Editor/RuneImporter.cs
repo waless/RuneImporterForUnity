@@ -55,6 +55,7 @@ namespace RuneImporter
             public string Value;
         }
 
+        const string ClassPrefix = "Rune_";
         const string ValueListName = "ValueList";
 
         public override void OnImportAsset(AssetImportContext ctx)
@@ -64,13 +65,21 @@ namespace RuneImporter
                 var json = stream.ReadToEnd();
                 var book = JsonUtility.FromJson<RuneBook>(json);
 
-                //createInstanceAndSetting(book);
+                createInstanceAndSetting(book);
 
-                dynamic obj = ScriptableObject.CreateInstance("TestScript");
+                //var instance_type = Type.GetType("Rune_SampleType");
+                //dynamic instance = ScriptableObject.CreateInstance(instance_type);
+                //var value_type = Type.GetType("Rune_SampleType+Value");
+                //dynamic value = Activator.CreateInstance(value_type);
+                //var field_name = value_type.GetField("name");
+                //var number_name = value_type.GetField("number");
+                //field_name.SetValue(value, "oooooo");
+                //number_name.SetValue(value, 1000);
 
-                var value_type = Type.GetType("TestScript.Value");
+                //Debug.Log(instance.ValueList.GetType().ToString());
+                //instance.ValueList.Add(value);
 
-                AssetDatabase.CreateAsset(obj, "Assets/TestScriptObj.asset");
+                //AssetDatabase.CreateAsset(instance, "Assets/SampleType.asset");
                 AssetDatabase.Refresh();
             }
         }
@@ -90,6 +99,7 @@ namespace RuneImporter
             var instance = createInstance(table);
             if (instance != null)
             {
+                var instance_type_name = instance.GetType().FullName;
                 var value_list_info = instance.GetType().GetField(ValueListName);
                 dynamic value_list = value_list_info.GetValue(instance);
 
@@ -99,13 +109,24 @@ namespace RuneImporter
                     for (int j = 0; j < col_value_array.Values.Length; ++j)
                     {
                         var type = table.Types[j];
+                        if (type.TypeName.Kind == "enum")
+                        {
+                            continue;
+                        }
+
                         var value_string = col_value_array.Values[j];
                         var value_object = nameToObjectValue(type, value_string);
                         var value_name = type.TypeName.Value;
 
-                        var value_type_name = "MasterData." + type.TypeName.Value + "." + "Value";
+                        var value_type_name = instance_type_name + "+" + "Value";
+                        var value_type = Type.GetType(value_type_name);
 
-                        Type.GetType(value_type_name);
+                        dynamic value_instance = Activator.CreateInstance(value_type);
+                        Debug.Log(value_name);
+                        var value_field = value_type.GetField(value_name);
+                        value_field.SetValue(value_instance, value_object);
+
+                        value_list.Add(value_instance);
                     }
                 }
 
@@ -124,9 +145,7 @@ namespace RuneImporter
 
         string makeClassName(RuneTable table)
         {
-            var namespace_name = "MasterData";
-
-            return namespace_name + "." + table.Name;
+            return ClassPrefix + table.Name;
         }
 
         object nameToObjectValue(RuneType type, string value_name)
