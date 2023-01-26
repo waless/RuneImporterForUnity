@@ -1,12 +1,11 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using RuneImporter;
 
 public class Rune_SampleType : RuneScriptableObject
 {
     [SerializeField]
-    public List<Value> ValueList = new List<Value>();
+    public Value[] ValueList = new Value[4];
 
     [Serializable]
     public struct Value

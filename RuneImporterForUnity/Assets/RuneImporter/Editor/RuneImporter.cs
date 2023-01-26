@@ -66,20 +66,6 @@ namespace RuneImporter
                 var book = JsonUtility.FromJson<RuneBook>(json);
 
                 createInstanceAndSetting(book);
-
-                //var instance_type = Type.GetType("Rune_SampleType");
-                //dynamic instance = ScriptableObject.CreateInstance(instance_type);
-                //var value_type = Type.GetType("Rune_SampleType+Value");
-                //dynamic value = Activator.CreateInstance(value_type);
-                //var field_name = value_type.GetField("name");
-                //var number_name = value_type.GetField("number");
-                //field_name.SetValue(value, "oooooo");
-                //number_name.SetValue(value, 1000);
-
-                //Debug.Log(instance.ValueList.GetType().ToString());
-                //instance.ValueList.Add(value);
-
-                //AssetDatabase.CreateAsset(instance, "Assets/SampleType.asset");
                 AssetDatabase.Refresh();
             }
         }
@@ -100,12 +86,19 @@ namespace RuneImporter
             if (instance != null)
             {
                 var instance_type_name = instance.GetType().FullName;
+
+                var value_type_name = instance_type_name + "+" + "Value";
+                var value_type = Type.GetType(value_type_name);
+
+                var value_list_type_name = value_type_name + "[]";
+                var value_list_type = Type.GetType(value_list_type_name);
                 var value_list_info = instance.GetType().GetField(ValueListName);
-                dynamic value_list = value_list_info.GetValue(instance);
+                var value_list_instance = (Array)value_list_info.GetValue(instance);
 
                 for (int i = 0; i < table.Values.Length; ++i)
                 {
                     var col_value_array = table.Values[i];
+                    var value_instance = Activator.CreateInstance(value_type);
                     for (int j = 0; j < col_value_array.Values.Length; ++j)
                     {
                         var type = table.Types[j];
@@ -117,23 +110,13 @@ namespace RuneImporter
                         var value_string = col_value_array.Values[j];
                         var value_object = nameToObjectValue(type, value_string);
                         var value_name = type.TypeName.Value;
-
-                        var value_type_name = instance_type_name + "+" + "Value";
-                        var value_type = Type.GetType(value_type_name);
-
-                        dynamic value_instance = Activator.CreateInstance(value_type);
                         var value_field = value_type.GetField(value_name);
-                        Debug.Log(value_object);
+
                         value_field.SetValue(value_instance, value_object);
-
-                        var list = new List<int>();
-
-                        value_list.Add(value_instance);
                     }
+                    value_list_instance.SetValue(value_instance, i);
                 }
-
-                Debug.Log(value_list.ToString() + value_list.Count.ToString());
-                AssetDatabase.CreateAsset(instance, "Assets/" + table.Name + ".asset");
+                AssetDatabase.CreateAsset(instance, "Assets/RuneImporter/Editor/" + table.Name + ".asset");
             }
         }
 

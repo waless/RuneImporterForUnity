@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c1ec2366a9825046a31560846e6b35e, type: 3}
-  m_Name: SampleType4
+  m_Script: {fileID: 11500000, guid: 374bc062dd0e65149a35c6bcc0f0b431, type: 3}
+  m_Name: SampleType3
   m_EditorClassIdentifier: 
   ValueList:
-  - name: 
-  - name: 
+  - name: Foo
+  - name: Bar
