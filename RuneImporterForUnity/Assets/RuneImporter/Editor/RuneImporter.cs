@@ -129,9 +129,6 @@ namespace RuneImporter
                         value_list.Add(value_instance);
                     }
                 }
-
-                var mem = instance.GetType().GetField("");
-                mem.SetValue(instance, "");
             }
         }
 
@@ -153,14 +150,52 @@ namespace RuneImporter
             switch (type.TypeName.Kind)
             {
                 case "int":
-                    return Convert.ToInt32(value_name);
+                    return parseIntValue(value_name);
                 case "float":
-                    return (float)Convert.ToDouble(value_name);
+                    return parseFloatValue(value_name);
                 case "string":
                     return value_name;
             }
 
             return null;
+        }
+
+        static int parseIntValue(string str)
+        {
+            if (string.IsNullOrEmpty(str))
+            {
+                return 0;
+            }
+
+            int result = 0;
+            if (int.TryParse(str, out result))
+            {
+                return result;
+            }
+            else
+            {
+                Debug.LogError($"値が整数ではありません:{str}");
+                return 0;
+            }
+        }
+
+        static float parseFloatValue(string str)
+        {
+            if (string.IsNullOrEmpty(str))
+            {
+                return 0f;
+            }
+
+            float result = 0f;
+            if (float.TryParse(str, out result))
+            {
+                return result;
+            }
+            else
+            {
+                Debug.LogError($"値が浮動小数ではありません:{str}");
+                return 0f;
+            }
         }
     }
 }
