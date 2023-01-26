@@ -116,7 +116,8 @@ namespace RuneImporter
                     }
                     value_list_instance.SetValue(value_instance, i);
                 }
-                AssetDatabase.CreateAsset(instance, "Assets/RuneImporter/Editor/" + table.Name + ".asset");
+                Directory.CreateDirectory(Config.ScriptableObjectDirectory);
+                AssetDatabase.CreateAsset(instance, Config.ScriptableObjectDirectory + table.Name + ".asset");
             }
         }
 
