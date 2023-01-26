@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RuneImporter;
 
-public class Rune_SampleType : RuneScriptableObject
+public class Rune_SampleType3 : RuneScriptableObject
 {
     [SerializeField]
     public List<Value> ValueList = new List<Value>();
@@ -12,7 +12,5 @@ public class Rune_SampleType : RuneScriptableObject
     public struct Value
     {
         public string name;
-        public int number;
-        public float position;
     }
 }

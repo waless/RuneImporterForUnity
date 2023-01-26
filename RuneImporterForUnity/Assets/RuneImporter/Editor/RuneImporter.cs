@@ -122,13 +122,18 @@ namespace RuneImporter
                         var value_type = Type.GetType(value_type_name);
 
                         dynamic value_instance = Activator.CreateInstance(value_type);
-                        Debug.Log(value_name);
                         var value_field = value_type.GetField(value_name);
+                        Debug.Log(value_object);
                         value_field.SetValue(value_instance, value_object);
+
+                        var list = new List<int>();
 
                         value_list.Add(value_instance);
                     }
                 }
+
+                Debug.Log(value_list.ToString() + value_list.Count.ToString());
+                AssetDatabase.CreateAsset(instance, "Assets/" + table.Name + ".asset");
             }
         }
 

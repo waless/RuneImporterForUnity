@@ -13,6 +13,39 @@ MonoBehaviour:
   m_Name: SampleType
   m_EditorClassIdentifier: 
   ValueList:
-  - name: oooooo
-    number: 1000
+  - name: 
+    number: 0
+    position: 0
+  - name: 
+    number: 0
+    position: 0
+  - name: 
+    number: 0
+    position: 0
+  - name: 
+    number: 0
+    position: 0
+  - name: 
+    number: 0
+    position: 0
+  - name: 
+    number: 0
+    position: 0
+  - name: 
+    number: 0
+    position: 0
+  - name: 
+    number: 0
+    position: 0
+  - name: 
+    number: 0
+    position: 0
+  - name: 
+    number: 0
+    position: 0
+  - name: 
+    number: 0
+    position: 0
+  - name: 
+    number: 0
     position: 0
