@@ -20,8 +20,8 @@ MonoBehaviour:
     number: 1
     position: 1.1
   - name: e
-    number: 22
+    number: 300
     position: 2.2
   - name: 
-    number: 123
+    number: 30
     position: 0

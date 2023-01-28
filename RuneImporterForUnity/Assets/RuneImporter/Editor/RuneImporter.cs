@@ -1,16 +1,12 @@
 using System;
 using System.IO;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEditor;
 using UnityEditor.AssetImporters;
 
 namespace RuneImporter
 {
-    public class RuneScriptableObject : ScriptableObject
-    {
-    }
-
     [ScriptedImporter(1, "rune")]
     public class RuneImporter : ScriptedImporter
     {
@@ -87,8 +83,9 @@ namespace RuneImporter
             {
                 var instance_type_name = instance.GetType().FullName;
 
-                var value_type_name = instance_type_name + "+" + "Value";
+                var value_type_name = instance_type_name + $"+Value, {Config.AssemblyName}";
                 var value_type = Type.GetType(value_type_name);
+                Assert.IsNotNull(value_type, $"type={value_type_name}");
 
                 var value_list_type_name = value_type_name + "[]";
                 var value_list_type = Type.GetType(value_list_type_name);
