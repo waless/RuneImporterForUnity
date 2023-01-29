@@ -3,6 +3,17 @@ using UnityEngine;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using RuneImporter;
 
+namespace RuneImporter
+{
+    public static partial class RuneLoader
+    {
+        public static AsyncOperationHandle Rune_SampleType_LoadInstanceAsync()
+        {
+            return Rune_SampleType.LoadInstanceAsync();
+        }
+    }
+}
+
 public class Rune_SampleType : RuneScriptableObject
 {
     public static Rune_SampleType instance { get; private set; }
