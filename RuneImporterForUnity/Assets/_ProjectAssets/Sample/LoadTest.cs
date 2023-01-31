@@ -32,12 +32,18 @@ public class LoadTest : MonoBehaviour
     {
         await RuneImporter.RuneLoader.LoadAllAsync();
 
+        Debug.Log(Rune_SampleType.instance.name);
         var sample_data = Rune_SampleType.instance.ValueList;
         foreach (var v in sample_data)
         {
             Debug.Log(v.name);
-            Debug.Log(v.number);
-            Debug.Log(v.position);
+        }
+
+        Debug.Log(Rune_SampleType2.instance.name);
+        var sample_data2 = Rune_SampleType2.instance.ValueList;
+        foreach (var v in sample_data2)
+        {
+            Debug.Log(v.name);
         }
     }
 }

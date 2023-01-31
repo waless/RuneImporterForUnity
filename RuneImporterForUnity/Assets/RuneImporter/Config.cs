@@ -1,6 +1,3 @@
-using System;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace RuneImporter
 {
@@ -12,12 +9,5 @@ namespace RuneImporter
 
         // ScriptableObjectのクラスが属するアセンブリ名
         public const string AssemblyName = "Assembly-CSharp";
-
-        // ScriptableObjectアセットのロード方法
-        // デフォルトではAddressableを使用します。プロジェクト方針により書き換えてください
-        public static Func<string, AsyncOperationHandle> OnLoad = (path) =>
-        {
-            return Addressables.LoadAssetAsync<Rune_SampleType>(path);
-        };
     }
 }
