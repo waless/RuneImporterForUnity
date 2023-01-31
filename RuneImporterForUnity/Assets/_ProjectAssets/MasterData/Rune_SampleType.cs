@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using RuneImporter;
 
@@ -29,11 +30,10 @@ public class Rune_SampleType : RuneScriptableObject
         public float position;
     }
 
-    public static AsyncOperationHandle LoadInstanceAsync()
-    {
+    public static AsyncOperationHandle<Rune_SampleType> LoadInstanceAsync() {
         var path = Config.ScriptableObjectDirectory + "SampleType.asset";
-        var handle = Config.OnLoad(path);
-        handle.Completed += (handle) => { instance = handle.Result as Rune_SampleType; };
+        var handle = Addressables.LoadAssetAsync<Rune_SampleType>(path);
+        handle.Completed += (handle) => { instance = handle.Result; };
 
         return handle;
     }
