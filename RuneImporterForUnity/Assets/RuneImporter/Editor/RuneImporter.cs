@@ -11,6 +11,19 @@ namespace RuneImporter
     public class RuneImporter : ScriptedImporter
     {
         [Serializable]
+        struct RuneJson
+        {
+            public RuneInfo Info;
+            public RuneBook Book;
+        }
+
+        [Serializable]
+        struct RuneInfo
+        {
+            public string ToolVersion;
+        }
+
+        [Serializable]
         struct RuneBook
         {
             public string Name;
@@ -59,9 +72,9 @@ namespace RuneImporter
             using (var stream = new StreamReader(ctx.assetPath))
             {
                 var json = stream.ReadToEnd();
-                var book = JsonUtility.FromJson<RuneBook>(json);
+                var data = JsonUtility.FromJson<RuneJson>(json);
 
-                createInstanceAndSetting(book);
+                createInstanceAndSetting(data.Book);
                 AssetDatabase.Refresh();
             }
         }
