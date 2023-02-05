@@ -4,6 +4,17 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using RuneImporter;
 
+namespace RuneImporter
+{
+    public static partial class RuneLoader
+    {
+        public static AsyncOperationHandle Rune_SampleType2_LoadInstanceAsync()
+        {
+            return Rune_SampleType2.LoadInstanceAsync();
+        }
+    }
+}
+
 public class Rune_SampleType2 : RuneScriptableObject
 {
     public static Rune_SampleType2 instance { get; private set; }
