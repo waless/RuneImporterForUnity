@@ -17,8 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: e40c61291a5bf6b45bfc265e3d70281a
   m_SerializeEntries:
-  - m_GUID: e43f34d99cae0b947af4035a173b96c4
-    m_Address: Assets/_ProjectAssets/MasterData/SampleType.asset
+  - m_GUID: d635447c2770ef14d8894271f7bd833d
+    m_Address: Assets/_ProjectAssets/MasterData/SampleType3.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -27,8 +27,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d635447c2770ef14d8894271f7bd833d
-    m_Address: Assets/_ProjectAssets/MasterData/SampleType3.asset
+  - m_GUID: e43f34d99cae0b947af4035a173b96c4
+    m_Address: Assets/_ProjectAssets/MasterData/SampleType.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
