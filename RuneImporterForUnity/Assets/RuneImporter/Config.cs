@@ -15,9 +15,11 @@ namespace RuneImporter
 
         // ScriptableObjectアセットのロード方法
         // デフォルトではAddressableを使用します。プロジェクト方針により書き換えてください
+        //
+        // @note 現在はAsyncOperationHandleを使用する為、Addressableへの依存があります
         public static Func<string, AsyncOperationHandle> OnLoad = (path) =>
         {
-            return Addressables.LoadAssetAsync<Rune_SampleType>(path);
+            return Addressables.LoadAssetAsync<RuneScriptableObject>(path);
         };
     }
 }
