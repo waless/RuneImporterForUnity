@@ -28,32 +28,22 @@ public class LoadTest : MonoBehaviour
         };
     }
 
-    void LoadAll()
+    async void LoadAll()
     {
-        var loader_type = typeof(RuneImporter.RuneLoader);
-        var methods = loader_type.GetMethods();
-        var call_methods = methods.Where(m => m.IsPublic && m.IsStatic);
-        foreach (var m in call_methods)
+        await RuneImporter.RuneLoader.LoadAllAsync();
+
+        Debug.Log(Rune_SampleType.instance.name);
+        var sample_data = Rune_SampleType.instance.ValueList;
+        foreach (var v in sample_data)
         {
-            var result = m.Invoke(null, null);
-            if (result != null && result is AsyncOperationHandle)
-            {
-                var handle = (AsyncOperationHandle)result;
-                handle.Completed += (v) =>
-                {
-                    var s = v.Result as Rune_SampleType;
-                    foreach (var value in s.ValueList)
-                    {
-                        Debug.Log(value.name);
-                        Debug.Log(value.number);
-                        Debug.Log(value.position);
-                    }
-                };
-            }
-            else
-            {
-                Debug.LogWarning($"RuneLoaderのメンバにAsyncOperationHandleを返さない関数が含まれています:{m.Name}");
-            }
+            Debug.Log(v.name);
+        }
+
+        Debug.Log(Rune_SampleType2.instance.name);
+        var sample_data2 = Rune_SampleType2.instance.ValueList;
+        foreach (var v in sample_data2)
+        {
+            Debug.Log(v.name);
         }
     }
 }

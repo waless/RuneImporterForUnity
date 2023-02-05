@@ -22,6 +22,21 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d4c9e5506b734b46a4b83efb1bc2bd1
+    m_Address: Assets/_ProjectAssets/MasterData/SampleType2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d635447c2770ef14d8894271f7bd833d
+    m_Address: Assets/_ProjectAssets/MasterData/SampleType3.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95553ed32b5977d438ac634a66b4f958
+    m_Address: Assets/_ProjectAssets/MasterData/SampleType4.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0128c6155f8425346a69fbd5ddc6e9b1, type: 2}
   m_SchemaSet:
